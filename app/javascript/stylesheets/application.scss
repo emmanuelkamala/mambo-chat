@@ -2,8 +2,14 @@
 
 .chat-room {
   height: 100vh;
-  overflow-y: hidden;
 
+  .message {
+    .content {
+      background-color: #eeeeee;
+      padding: 10px;
+      border-radius: 15px;
+    }
+  }
   .chat-box {
     position: absolute;
     bottom: 0;

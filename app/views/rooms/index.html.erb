@@ -16,10 +16,17 @@
     </div>
     <div class="col-9">
       <% if @room.present? %>
-        <div class="chat-room">
+        <div class="chat-room overflow-hidden">
           <p><%= @room.name %></p>
           <% @room.messages.each do |message| %>
-            <p><%= message.content %> - <%= message.user.username %></p>
+            <div class="message mb-3 <%= 'me' if message.user == current_user %>">
+              <div class="content">
+                <%= message.content %>
+              </div>
+              <div class="author">
+                <%= message.user.username %>
+              </div>
+            </div>
           <% end %>
           <div class="chat-box">
             <%= render 'messages/form', message: Message.new, room: @room %>
